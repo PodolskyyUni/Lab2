@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab2.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Picker
+            x:Name="strategyPicker"
+            Title="Select Strategy"
+            HorizontalOptions="FillAndExpand"
+            SelectedIndexChanged="StrategyPicker_SelectedIndexChanged" />
+
+
+            <Picker
+                x:Name="attributePicker"
+                Title="Select Attribute"
+                HorizontalOptions="FillAndExpand" />
+
+            <Entry 
+                x:Name="searchEntry" 
+                Placeholder="Enter search phrase" 
+                HorizontalOptions="FillAndExpand" />
+            <Button 
+                x:Name="searchButton"
+                Text="Search"
+                Clicked="OnSearchClicked"
+                HorizontalOptions="Center" />
+
+
+            <Label
+                x:Name="resultLabel"
+                Text="Results will appear under here"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand" />
+
+            <ListView x:Name="resultsListView"
+          ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Department}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label
+            Text="Click on the scientist for additional information"/>
+
+            <Button 
+                x:Name="saveButton" 
+                Text="Save Results" 
+                Clicked="OnSaveClicked"/>
+
+            <Label x:Name="logLabel" />
+            <Button
+                x:Name="clearButton"
+                Text="Clear"
+                Clicked="OnClearClicked"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="transformButton"
+                Text="Transform XML to HTML"
+                Clicked="OnTransformButtonClicked"
+                HorizontalOptions="Center" />
+            <Button 
+                x:Name="exitButton" 
+                Text="Exit Programme" 
+                Clicked="OnExitButtonClicked" 
+                HorizontalOptions="Center" />
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
